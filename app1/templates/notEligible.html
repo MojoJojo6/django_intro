@@ -1,0 +1,34 @@
+{% load staticfiles %}
+<html>
+<head>
+    <title>Voting Eligibility</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-resource.js"></script>
+    <script type="text/javascript" src="{% static 'app1/js/index.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'app1/css/style.css' %}" >
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+
+{% verbatim %}
+</head>
+<body ng-app="app1" flex layout-fill layout="column" layout-align="center center" ng-cloak>
+
+    <div ng-controller="notEligibleController as ntEliCntrl">
+        <md-card class="md-padding">
+            <h1>You are not Eligible to Vote!</h1>
+            <div class="md-padding">
+                <md-button class="md-primary md-raised" ng-click="ntEliCntrl.onBack()">Back</md-button>
+            </div>
+        </md-card>
+
+    </div>
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.js"></script>
+</body>
+
+    {% endverbatim %}
+</html>

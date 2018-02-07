@@ -6,6 +6,7 @@ class User(models.Model):
     lastName    = models.CharField(max_length=20)
     emailId     = models.EmailField(unique=True)
     number      = models.CharField(max_length=10)
+    age         = models.IntegerField()
 
     def __str__(self):
         x = self.firstName + " " + self.lastName

@@ -10,6 +10,7 @@ class UserSerializer(serializers.ModelSerializer):
     lastName    = serializers.CharField(max_length=20)
     emailId     = serializers.EmailField()
     number      = serializers.CharField(max_length=10)
+    age         = serializers.IntegerField()
 
     def validate_emailId(self, value):
         if self.context['request'].method == 'POST':
@@ -21,4 +22,4 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model   = User
-        fields  = ['id','firstName', 'lastName', 'emailId', 'number']
+        fields  = ['id','firstName', 'lastName', 'emailId', 'number', 'age']

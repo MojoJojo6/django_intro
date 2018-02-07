@@ -40,15 +40,26 @@ class user_List(ListCreateAPIView):
     serializer_class = UserSerializer
     permission_classes = []
 
+    def post(self, request, *args, **kwargs):
+        response = self.create(request, *args, **kwargs)
+        print('Response: ',response.data)
+        if response.data['age'] >= 18:
+            response.data['url'] = 'eligible/'
+        else:
+            response.data['url'] = 'noteligible/'
+        return response
+
+
 class user_Detail(RetrieveUpdateDestroyAPIView):
     lookup_field = 'id'
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = []
 
+'''
 def user_list(request):
     if request.method == 'GET':
         qs = User.objects.all()
         serializer = UserSerializer(qs, many=True)
         return JsonResponse(serializer.data, safe=False)
-
+'''
